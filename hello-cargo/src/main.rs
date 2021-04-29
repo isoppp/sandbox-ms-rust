@@ -43,4 +43,41 @@ fn main() {
     let _tuple = ("hello", 123, 'c'); // &str, i32, char
     println!("tuple.0 is {}", _tuple.0);
     assert_eq!(_tuple.1, 123);
+
+    // structs
+    // struct with named fields
+    struct Person {
+        name: String,
+        age: u8,
+        likes_oranges: bool
+    }
+    struct Point2D(u32, u32); // tuple struct
+    struct Unit; // unit struct
+
+    let _person: Person = Person {
+        name: String::from("Person name!"),
+        age: 25,
+        likes_oranges: false
+    };
+    let _origin = Point2D(0, 0);
+    let _unit = Unit;
+
+    // enums
+    enum WebEvent {
+        PageLoad,
+        PageUnload,
+        KeyPress(char), // or KeyPress(KeyPress)
+        Paste(String),
+        Click { x: i64, y: i64} // or Click(Click)
+    }
+    // struct Click {
+    //     x: i64,
+    //     y: i64
+    // }
+    // struct KeyPress(char);
+    let _event: WebEvent = WebEvent::PageLoad;
+    let _event: WebEvent = WebEvent::PageUnload;
+    let _event: WebEvent = WebEvent::KeyPress('a');
+    let _event: WebEvent = WebEvent::Paste(String::from("some text"));
+    let _event: WebEvent = WebEvent::Click{x: 1, y: 1};
 }
