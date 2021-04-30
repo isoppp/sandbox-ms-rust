@@ -1,4 +1,4 @@
-fn basics() {
+fn _basics() {
     let a_string = "Hello, world!";
     let a_number = 10;
     let a_boolean = true;
@@ -100,8 +100,12 @@ enum Transmission {
 }
 
 fn car_factory(color: String, transmission: Transmission, convertible: bool) -> Car {
-    // To Do - Fix this part of the function to create a new Car object as requested by the client
-    let car: Car = todo!("Replace this with an actual Car instance")
+    let car: Car = Car {
+        color,
+        transmission,
+        convertible,
+        mileage: 0
+    };
 
     // Factory's Quality Control Department says that new cars must always have zero mileage!
     assert_eq!(car.mileage, 0);
@@ -116,7 +120,7 @@ fn car_factory(color: String, transmission: Transmission, convertible: bool) -> 
     return car;
 }
 
-fn car_factory_assert() {
+fn car_factory_assertion() {
     let client_request_1 = car_factory(String::from("Red"), Transmission::Manual, false);
     assert_eq!(client_request_1.color, "Red");
     assert_eq!(client_request_1.transmission, Transmission::Manual);
@@ -134,5 +138,5 @@ fn car_factory_assert() {
 }
 
 fn main() {
-    car_factory_assert();
+    car_factory_assertion();
 }
