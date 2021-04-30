@@ -1,4 +1,4 @@
-fn main() {
+fn basics() {
     let a_string = "Hello, world!";
     let a_number = 10;
     let a_boolean = true;
@@ -80,4 +80,8 @@ fn main() {
     let _event: WebEvent = WebEvent::KeyPress('a');
     let _event: WebEvent = WebEvent::Paste(String::from("some text"));
     let _event: WebEvent = WebEvent::Click{x: 1, y: 1};
+}
+
+fn main() {
+
 }
