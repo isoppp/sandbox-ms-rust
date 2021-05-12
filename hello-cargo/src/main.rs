@@ -137,6 +137,16 @@ fn car_factory_assertion() {
     assert_eq!(client_request_2.convertible, false);
 }
 
+fn is_divisible_by(dividend: u32, divisor: u32) -> bool {
+    if divisor == 0 {
+        return false;
+    }
+
+    dividend % divisor == 0 // In Rust, last expression inside a code block is always returned.
+}
+
 fn main() {
-    car_factory_assertion();
+    assert_eq!(is_divisible_by(2, 3), false);
+    assert_eq!(is_divisible_by(5, 1), true);
+    assert_eq!(is_divisible_by(5, 0), false);
 }
