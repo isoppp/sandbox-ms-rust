@@ -145,8 +145,31 @@ fn is_divisible_by(dividend: u32, divisor: u32) -> bool {
     dividend % divisor == 0 // In Rust, last expression inside a code block is always returned.
 }
 
+fn use_collection_types() {
+    // Fixed size array
+    let array1 = ["foo", "bar"];
+    let array2 = ["baz"; 512];
+    println!("{}", array1[1]);
+    println!("{}", array2[99]);
+
+    // Vector (like dynamic size Array)
+    let vec1 = vec!["foo", "bar"];
+    let vec2 = vec!["baz"; 512];
+    let mut vec3 = Vec::new();
+    vec3.push(1);
+    vec3.pop();
+
+    // Hashmap
+    use std::collections::HashMap;
+
+    let mut book_reviews: HashMap<String, String> = HashMap::new();
+    book_reviews.insert("hoo".to_string(), "bar".to_string());
+    assert_eq!(book_reviews.contains_key("hoo"), true);
+    assert_eq!(book_reviews["hoo"], "bar".to_string());
+    book_reviews.remove("hoo");
+    assert_eq!(book_reviews.contains_key("hoo"), false);
+}
+
 fn main() {
-    assert_eq!(is_divisible_by(2, 3), false);
-    assert_eq!(is_divisible_by(5, 1), true);
-    assert_eq!(is_divisible_by(5, 0), false);
+    use_collection_types();
 }
